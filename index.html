@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>What a day!</title>
+	<link rel="stylesheet" href="node_modules/semantic-ui/dist/semantic.min.css">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+	<div class="ui nine wide centered grid">
+
+		<div class="ten wide centered column">
+			<h1>Bla</h1>
+
+			<div class="ui three column grid">
+
+				<div class="row">
+					<div class="column">Jour</div>
+					<div class="column">Mois</div>
+					<div class="column">Année</div>
+				</div>
+
+				<div class="row">
+					<div class="column">
+						<input type="number" min="1" max="31">
+					</div>
+					<div class="column">
+						<select name="selectMois">
+							<option value="janvier">janvier</option>
+							<option value="février">février</option>
+							<option value="mars">mars</option>
+							<option value="avril">avril</option>
+							<option value="mai">mai</option>
+							<option value="juin">juin</option>
+							<option value="juillet">juillet</option>
+							<option value="août">août</option>
+							<option value="septembre">septembre</option>
+							<option value="octobre">octobre</option>
+							<option value="novembre">novembre</option>
+							<option value="décembre">décembre</option>
+						</select>
+					</div>
+					<div class="column">
+						<input type="number">
+					</div>
+				</div>
+
+			</div>
+		<div class="row">
+			<button class="ui teal basic button">Vérifier</button>
+		</div>
+		</div>
+
+
+	</div>
+
+	<script src="node_modules/jquery/dist/jquery.min.js"></script>
+	<script src="node_modules/semantic-ui/dist/semantic.min.js"></script>
+	<script src="app.js"></script>
+
+</body>
+</html>
