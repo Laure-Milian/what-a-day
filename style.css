@@ -1,11 +1,11 @@
 body {
 	margin-top: 50px;
-},
+}
 
 .inputError {
 	border : 1px solid red;
-},
+}
 
-.overlay {
+.overlay > p {
 	font-size: 100pt;
 }

@@ -2,51 +2,57 @@
 	"use strict";
 	var app = {
 
-		day : null,
-
-		year : null,
-		
 		init : function() {
 			this.listeners();
 		},
 		
 		listeners : function() {
-			$("#checkButton").on("click", this.checkAll);
+			$("#checkButton").on("click", this.checkInputs);
 		},
 
-		checkAll : function() {
+		checkInputs : function() {
+			// effacer les erreurs précédentes
 			$("#inputDay, #inputYear").removeClass("inputError");
 			$(".error").html("");
-			app.checkDay();
-			app.checkYear();
-		},
 
-		checkDay : function() {
+			// récupérer les inputs
 			var $inputDay = parseInt($("#inputDay").val(), 10);
-			if ($inputDay > 0 && $inputDay < 32) {
-				app.day = true;
-				app.printResult();
-			} else {
-				$(".error").append("<p>La date du jour doit être comprise entre 1 et 31</p>");
-				$("#inputDay").addClass("inputError");
-				app.day = null;
-			}
-		},
-
-		checkYear : function() {
+			var $selectedMonth = $("#selectMonth").val();
 			var $inputYear = parseInt($("#inputYear").val(), 10);
-			if ($inputYear > 0) {
-				app.year = true;
-				app.printResult();
-			} else {
-				$(".error").append("<p>L'année doit être supérieure à 0</p>");
-				$("#inputYear").addClass("inputError");
-				app.year = null;
+			
+			// vérifier si les inputs correspondent aux attentes, si oui, lancer la fonction getDate
+			if ($inputDay < 1 || $inputDay > 31 || !$inputDay) {
+				app.inputError("inputDay", "La date du jour doit être comprise entre 1 et 31");
+			} 
+			else if ($inputYear < 0 || !$inputYear) {
+				app.inputError("inputYear", "L'année doit être supérieure à 0");
+			} 
+			else {
+				app.getDate($inputDay, $selectedMonth, $inputYear);
 			}
+
 		},
 
-		printResult : function() {
-			$("body").html("<div class='overlay'>Lundi <button id='restart'>Recommencer</button></div>");
+		getDate : function(day, month, year) {
+			var date = moment(year + "-" + month + "-" + day);
+			var correspondingDay = date.weekday();
+			var daysArr = ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"];
+			var dayToDisplay = daysArr[correspondingDay];
+			app.displayDay(dayToDisplay);
+		},
+
+		displayDay : function(day) {
+			$("body").html("<div class='overlay'>" + day + "<button id='restart'>Recommencer</button></div>");
+			$("#restart").on("click", app.restart);			
+		},
+
+		inputError : function(selector, message) {
+			$(".error").append("<p>" + message + "</p>");
+			$("#" + selector).addClass("inputError");
+		},
+
+		restart : function() {
+			location.reload();
 		}
 
 	}
