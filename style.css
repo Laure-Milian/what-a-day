@@ -1,0 +1,11 @@
+body {
+	margin-top: 50px;
+},
+
+.inputError {
+	border : 1px solid red;
+},
+
+.overlay {
+	font-size: 100pt;
+}
