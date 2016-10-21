@@ -12,8 +12,8 @@
 
 		checkInputs : function() {
 			// effacer les erreurs précédentes
+			$("#message").remove();
 			$("#inputDay, #inputYear").removeClass("inputError");
-			$(".error").html("");
 
 			// récupérer les inputs
 			var $inputDay = parseInt($("#inputDay").val(), 10);
@@ -42,12 +42,14 @@
 		},
 
 		displayDay : function(day) {
-			$("body").html("<div class='overlay'>" + day + "<button id='restart'>Recommencer</button></div>");
-			$("#restart").on("click", app.restart);			
+			$("#message").remove();
+			$("body").html("<div class='overlay'>" + day + "<button id='restart' label='recommencer'>x</button></div>");
+			$("#restart").on("click", app.restart);
 		},
 
 		inputError : function(selector, message) {
-			$(".error").append("<p>" + message + "</p>");
+			$("#message").remove();
+			$("html").prepend('<div id="message" class="error">' + message + '</div>');
 			$("#" + selector).addClass("inputError");
 		},
 
