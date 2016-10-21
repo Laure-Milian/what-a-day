@@ -3,67 +3,49 @@
 <head>
 	<meta charset="UTF-8">
 	<title>What a day!</title>
-	<link rel="stylesheet" href="node_modules/semantic-ui/dist/semantic.min.css">
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-	<div class="ui nine wide centered grid">
+	<div class="container">
 
-		<div id="container">
-
-			<div class="ten wide centered column">
-				<div class="row">
-					<div id="message" class="error"></div>
-				</div>
-
-				<div class="ui three column left aligned grid">
-
-
-					<div class="row">
-						<div class="column">Jour</div>
-						<div class="column">Mois</div>
-						<div class="column">Année</div>
-					</div>
-
-					<div class="row">
-						<div class="column">
-							<input id="inputDay" class="ui input" type="number" min="1" max="31">
-						</div>
-						<div class="column">
-							<select id="selectMonth" name="selectMonth">
-								<option value="01">janvier</option>
-								<option value="02">février</option>
-								<option value="03">mars</option>
-								<option value="04">avril</option>
-								<option value="05">mai</option>
-								<option value="06">juin</option>
-								<option value="07">juillet</option>
-								<option value="08">août</option>
-								<option value="09">septembre</option>
-								<option value="10">octobre</option>
-								<option value="11">novembre</option>
-								<option value="12">décembre</option>
-							</select>
-						</div>
-						<div class="column">
-							<input id="inputYear" class="ui input" type="number">
-						</div>
-					</div>
-
-				</div>
-				<div class="row">
-					<button id="checkButton" class="ui basic teal button">Vérifier</button>
-				</div>
-			</div>
-
+		<div class="column">
+			<div class="titre">Jour</div>		
+			<div class="selecteur"><input id="inputDay" type="number" min="1" max="31"></div>
 		</div>
 
+		<div class="column">
+			<div class="titre">Mois</div>
+			<div class="selecteur">
+				<select id="selectMonth" name="selectMonth">
+					<option value="1">janvier</option>
+					<option value="2">février</option>
+					<option value="3">mars</option>
+					<option value="4">avril</option>
+					<option value="5">mai</option>
+					<option value="6">juin</option>
+					<option value="7">juillet</option>
+					<option value="8">août</option>
+					<option value="9">septembre</option>
+					<option value="10">octobre</option>
+					<option value="11">novembre</option>
+					<option value="12">décembre</option>
+				</select>
+			</div>
+		</div>
+
+		<div class="column">
+			<div class="titre">Année</div>
+			<div class="selecteur"><input id="inputYear" type="number"></div>
+		</div>
+
+		<div class="row button">
+			<button id="checkButton">Vérifier</button>
+		</div>
 
 	</div>
 
 	<script src="node_modules/jquery/dist/jquery.min.js"></script>
-	<script src="node_modules/semantic-ui/dist/semantic.min.js"></script>
 	<script src="node_modules/moment/moment.js"></script>
 	<script src="app.js"></script>
 
