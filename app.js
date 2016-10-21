@@ -17,7 +17,7 @@
 
 			// récupérer les inputs
 			var $inputDay = parseInt($("#inputDay").val(), 10);
-			var $selectedMonth = $("#selectMonth").val();
+			var $selectedMonth = parseInt($("#selectMonth").val(), 10);
 			var $inputYear = parseInt($("#inputYear").val(), 10);
 			
 			// vérifier si les inputs correspondent aux attentes, si oui, lancer la fonction getDate
@@ -34,11 +34,16 @@
 		},
 
 		getDate : function(day, month, year) {
-			var date = moment(year + "-" + month + "-" + day);
+			var date = moment([year, month, day]);
 			var correspondingDay = date.weekday();
 			var daysArr = ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"];
 			var dayToDisplay = daysArr[correspondingDay];
 			app.displayDay(dayToDisplay);
+
+			var fr = moment().locale("fr");
+			console.log(fr);
+			var test = fr.localeData().months(moment([year, correspondingDay]));
+			console.log(test);
 		},
 
 		displayDay : function(day) {

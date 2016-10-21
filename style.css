@@ -44,16 +44,18 @@ input, select {
 
 .row.button {
 	text-align: center;
+	width: 250px;
+	margin: 0 auto;
 }
 
 #checkButton {
-	border: 1px solid #47b8e0 ;
+	border: 2px solid #47b8e0 ;
 	background-color: transparent;
 	color: #47b8e0;
-	height: 50px;
-	width: 150px;
+	height: 60px;
+	width: 100%;
 	margin-top: 20px;
-	font-size: 18px;
+	font-size: 20px;
 }
 
 #checkButton:hover {
