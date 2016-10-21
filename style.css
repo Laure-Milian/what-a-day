@@ -1,11 +1,13 @@
 body {
 	background-color: #34314c;
 	color : #47b8e0;
+	font-family: "Open Sans", "Sans Serif";
 	}
 
-#container {
-	margin-top: 50px;
-	font-family: "Open Sans", "Sans Serif";
+.container {
+	width: 400px;
+	margin: 50px auto;
+	color : #47b8e0;
 }
 
 .inputError {
@@ -16,7 +18,16 @@ body {
 	font-size: 100pt;
 }
 
+.column {
+	display: inline-block;
+	width: 100px;
+}
 
+input {
+	border: 1px solid #47b8e0 ;
+	background-color: none;
+	appearance: none;
+}
 
 #ff7473
 #fff
