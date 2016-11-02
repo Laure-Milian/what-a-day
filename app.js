@@ -34,16 +34,12 @@
 		},
 
 		getDate : function(day, month, year) {
-			var date = moment([year, month, day]);
-			var correspondingDay = date.weekday();
+			var date = moment(year + "-" + month + "-" + day);
+			var correspondingDay = date.day();
+			console.log(correspondingDay);
 			var daysArr = ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"];
 			var dayToDisplay = daysArr[correspondingDay];
 			app.displayDay(dayToDisplay);
-
-			var fr = moment().locale("fr");
-			console.log(fr);
-			var test = fr.localeData().months(moment([year, correspondingDay]));
-			console.log(test);
 		},
 
 		displayDay : function(day) {
